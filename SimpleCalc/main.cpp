@@ -3,26 +3,6 @@
 
 using namespace std;
 
-
-/*
-49 1
-50 2
-51 3
-52 4
-53 5
-54 6
-55 7
-56 8
-57 9
-48 0
-43 +
-45 -
-47 /
-42 *
-37 %
-*/
-//if ((int(s[x]) == 37) or (int(s[x]) == 42) or (int(s[x]) == 43) or (int(s[x]) == 45) or ((int(s[x]) >= 47) and (int(s[x]) <= 57))
-
 string s, s_chis, s_sign;
 vector<int> chis;
 vector<string> sign;
