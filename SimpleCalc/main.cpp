@@ -1,10 +1,10 @@
 #include <iostream>
-#include<vector>
+#include <vector>
 
 
 using namespace std;
 
-string s, s_chis, s_sign;
+string  s_chis, s_sign;
 int chis[100];
 vector<string> sign;
 int i, x = 0, chisn = 0, x2;
@@ -40,9 +40,21 @@ void check_sign(char str) ///// check sign
 
 }
 
+void exitprog ()
+{
+    cout << "Incorrect input" << endl;
+    exit(0);
+}
+
 
 int main() {
-    s = "1 +12 - 3 / 3";
+
+    string s;
+    getline(cin,s);
+    if (s == "")
+    {
+        exitprog();
+    }
     while (x <= s.size()) {
         if (s.find(" ", 0) != -1) {
             if (int(s[x]) == 32) {
@@ -52,18 +64,16 @@ int main() {
                 chis[chisn] = i;
                 chisn++;
                 if ((int(s[x + 1]) < 48) && (int(s[x + 1]) > 57)) {
-                    cout << "Incorrect input" << endl;
-                    exit(0);
+                    exitprog();
                 }
                 s.erase(0, (unsigned long long int) (x + 1));
                 if (!s.empty()) {
                     s_sign = s.substr(0, 1);
                     check_sign(s_sign[0]);////////////////
-                    /*if (s[2] != ' ')
+                    if (s[1] != ' ')
                     {
-                        cout << "Incorrect input" << endl;
-                        exit(0);
-                    }*/
+                        exitprog();
+                    }
                     s.erase(0, 2);
                     sign.push_back(s_sign);
                 }
@@ -89,8 +99,7 @@ int main() {
         }
         else if (sign[x] == "/") {
             if (chis[x2 + 1] == 0) {
-                cout << "Incorrect input" << endl;
-                exit(0);
+                exitprog();
             }
 
             chis[x2] = chis[x2] / chis[x2 + 1];
