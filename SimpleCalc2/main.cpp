@@ -99,7 +99,8 @@ int main() {
         }
         else if (sign[x] == "/") {
             if (chis[x2 + 1] == 0) {
-                exit_prog();
+                cout << "Division by zero" << endl;
+                exit(0);
             }
 
             chis[x2] = chis[x2] / chis[x2 + 1];
